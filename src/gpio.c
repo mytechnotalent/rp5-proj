@@ -78,6 +78,17 @@ static FILE *open_cmd(const char *cmd);
  */
 static void close_cmd(FILE *fp);
 
+/**
+ * @brief  Opens a command as a FILE stream using popen.
+ *
+ *         This function opens a command specified by the given string using the
+ *         popen function with read-only mode ("r"). It returns a pointer to the
+ *         FILE stream associated with the command. If the command execution
+ *         fails, it prints an error message using perror and exits the program.
+ *
+ * @param  cmd: The command to be executed and opened
+ * @retval FILE pointer to the stream associated with the command
+ */
 static FILE *open_cmd(const char *cmd) {
     FILE *fp = popen(cmd, "r");
     if (fp == NULL) {
@@ -94,6 +105,16 @@ static void close_cmd(FILE *fp) {
     }
 }
 
+/**
+ * @brief  Closes the FILE stream associated with a command using pclose.
+ *
+ *         This function closes the FILE stream associated with a command using
+ *         the pclose function. If the closure fails, it prints an error message
+ *         using perror and exits the program.
+ *
+ * @param  fp: FILE pointer to the stream associated with the command
+ * @retval None
+ */
 uint8_t read_gpio_state(const char *gpio_cmd) {
     const size_t MAX_BUF_SIZE = 1024;
     char buf[MAX_BUF_SIZE];
@@ -112,4 +133,3 @@ uint8_t read_gpio_state(const char *gpio_cmd) {
     close_cmd(fp);
     return 0;
 }
-
