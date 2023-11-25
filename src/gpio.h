@@ -39,6 +39,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 /**
  * @brief  GPIO Commands for Interacting with GPIO Pins.
@@ -69,7 +70,7 @@ extern const char *GPIO11_CLEAR;
  * @param  gpio_cmd: The GPIO command to be executed.
  * @retval uint8_t: The GPIO state (1 for high, 0 for low) or 0 in case of an error.
  */
-uint8_t read_gpio_state(const char *gpio_cmd);
+bool read_gpio_state(const char *gpio_cmd);
 
 #endif // GPIO_H
 

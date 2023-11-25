@@ -28,7 +28,7 @@
 
 int main(void) {
     bool exit_flag = false;
-    uint8_t not_pressed = 0;
+    bool not_pressed = false;
 
     system(GPIO17_SET);
     system(GPIO11_CLEAR);

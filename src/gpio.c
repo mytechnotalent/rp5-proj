@@ -94,7 +94,7 @@ static void close_cmd(FILE *fp) {
     }
 }
 
-uint8_t read_gpio_state(const char *gpio_cmd) {
+bool read_gpio_state(const char *gpio_cmd) {
     const size_t MAX_BUF_SIZE = 1024;
     char buf[MAX_BUF_SIZE];
     FILE *fp = NULL;
@@ -107,8 +107,8 @@ uint8_t read_gpio_state(const char *gpio_cmd) {
     while (fgets(buf, sizeof(buf) - 1, fp) != NULL) {
         printf("GPIO State: %s", buf);
         close_cmd(fp);
-        return (uint8_t)(buf[0] == '1');
+        return (bool)(buf[0] == '1');
     }
     close_cmd(fp);
-    return 0;
+    return false;
 }
