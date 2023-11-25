@@ -14,6 +14,13 @@ A minimalistic GPIO command and function library to work with the Raspberry Pi 5
 
 <br>
 
+# Setup
+```bash
+sudo apt install gpiod
+```
+
+<br>
+
 # Usage
 ```bash
 make
