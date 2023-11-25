@@ -65,12 +65,11 @@ extern const char *GPIO11_CLEAR;
  *         This function reads the GPIO state by executing the specified GPIO
  *         command using the open_cmd function. It then reads the output from the
  *         command using fgets, prints the GPIO state to the console, and returns
- *         the state as a uint8_t value (1 for high, 0 for low).
+ *         the state as a uint8_t value (true for high, false for low).
  *
  * @param  gpio_cmd: The GPIO command to be executed.
- * @retval uint8_t: The GPIO state (1 for high, 0 for low) or 0 in case of an error.
+ * @retval bool: The GPIO state (true for high, false for low).
  */
 bool read_gpio_state(const char *gpio_cmd);
 
 #endif // GPIO_H
-
